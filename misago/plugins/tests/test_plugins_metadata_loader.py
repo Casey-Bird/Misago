@@ -46,10 +46,10 @@ def test_plugins_metadata_loader_handles_plugins_with_empty_manifests(plugins_me
 
 def test_plugins_metadata_loader_handles_plugins_with_full_manifests(plugins_metadata):
     metadata = plugins_metadata.get_metadata()
-    assert "full_manifest_plugin" in metadata
+    assert "landing_page_plugin" in metadata
 
-    plugin_metadata = metadata["full_manifest_plugin"]
-    assert plugin_metadata.package == "full_manifest_plugin"
+    plugin_metadata = metadata["landing_page_plugin"]
+    assert plugin_metadata.package == "landing_page_plugin"
     assert plugin_metadata.dirname == "full-manifest-plugin"
     assert plugin_metadata.has_manifest == True
     assert plugin_metadata.manifest_error is None

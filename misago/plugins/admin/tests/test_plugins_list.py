@@ -18,7 +18,7 @@ def test_plugins_list_contains_plugins_directories_and_packages(admin_client):
     assert_contains(response, "empty-manifest-plugin")
     assert_contains(response, "empty_manifest_plugin")
     assert_contains(response, "full-manifest-plugin")
-    assert_contains(response, "full_manifest_plugin")
+    assert_contains(response, "landing_page_plugin")
     assert_contains(response, "invalid-manifest-plugin")
     assert_contains(response, "invalid_manifest_plugin")
     assert_contains(response, "minimal-plugin")
