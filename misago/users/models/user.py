@@ -482,24 +482,18 @@ class User(AbstractBaseUser, PluginDataModel, PermissionsMixin):
 
         return self.profile_fields.get("real_name")
 
-    def set_username(self, new_username, changed_by=None):
+    def set_username(self, new_username: str, commit: bool = True) -> bool:
         new_username = self.normalize_username(new_username)
-        if new_username != self.username:
-            old_username = self.username
-            self.username = new_username
-            self.slug = slugify(new_username)
+        if new_username == self.username:
+            return False
 
-            if self.pk:
-                changed_by = changed_by or self
-                namechange = self.record_name_change(
-                    changed_by, new_username, old_username
-                )
+        self.username = new_username
+        self.slug = slugify(new_username)
 
-                from ..signals import username_changed
+        if commit:
+           self.save()
 
-                username_changed.send(sender=self)
-
-                return namechange
+        return True
 
     def record_name_change(self, changed_by, new_username, old_username):
         return self.namechanges.create(
