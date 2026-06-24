@@ -4,7 +4,10 @@ Service for tracking namechanges
 
 from datetime import timedelta
 
+
 from django.utils import timezone
+
+from models import User
 
 
 def get_username_options(settings, user, user_acl):
@@ -18,6 +21,13 @@ def get_username_options(settings, user, user_acl):
         "length_max": settings.username_length_max,
     }
 
+
+def update_username_references(user: User):
+
+
+
+
+    pass
 
 def get_left_namechanges(user, user_acl):
     name_changes_allowed = user_acl["name_changes_allowed"]
@@ -48,3 +58,4 @@ def get_valid_changes_queryset(user, user_acl):
         cutoff = timezone.now() - timedelta(days=name_changes_expire)
         return queryset.filter(changed_on__gte=cutoff)
     return queryset
+
