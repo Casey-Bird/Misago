@@ -6,7 +6,7 @@ from datetime import timedelta
 
 from django.utils import timezone
 
-
+from ..attachments.models import Attachment
 from ..categories.models import Category
 from ..legal.models import Agreement
 from ..notifications.models import Notification
@@ -14,6 +14,7 @@ from ..postedits.models import PostEdit
 from ..threadupdates.models import ThreadUpdate
 from ..threads.models import Post, Thread
 from ..likes.models import Like
+from ..polls.models import Poll, PollVote
 
 
 def get_username_options(settings, user, user_acl):
@@ -95,3 +96,20 @@ def update_username_references(self, user):
     PostEdit.objects.filter(hidden_by=user).update(hidden_by_name=user.username, hidden_by_slug=user.slug)
 
     Like.objects.filter(user=user).update(user_name=user.username, user_slug=user.slug)
+
+    liked_posts = Post.objects.filter(id__in=Like.objects.filter(user=user).values("post_id"))
+
+    for post in liked_posts.iterator(chunk_size=50):
+        update_post_last_likes = False
+        for like in post.last_likes:
+            if like["id"] == user.id:
+                like["username"] = user.username
+                update_post_last_likes = True
+        if update_post_last_likes:
+            post.save(update_fields=["last_likes"])
+
+    Attachment.objects.filter(uploader=user).update(uploader_name=user.username, uploader_slug=user.slug)
+
+    Poll.objects.filter(starter=user).update(starter_name=user.username, starter_slug=user.slug)
+
+    PollVote.objects.filter(voter=user).update(voter_name=user.username, voter_slug=user.slug)

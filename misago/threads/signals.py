@@ -221,7 +221,7 @@ def anonymize_user_in_likes(sender, **kwargs):
         anonymize_post_last_likes(sender, post)
 
 
-@receiver([anonymize_user_data, username_changed])
+@receiver([anonymize_user_data])
 def update_usernames(sender, **kwargs):
     Thread.objects.filter(starter=sender).update(
         starter_name=sender.username, starter_slug=sender.slug
