@@ -2,6 +2,8 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import pgettext
 from rest_framework import serializers
 
+from models import User
+from ..usernames import record_name_change, update_username_references
 from ..validators import validate_username
 
 User = get_user_model()
@@ -32,5 +34,11 @@ class ChangeUsernameSerializer(serializers.Serializer):
 
     def change_username(self, changed_by):
         user = self.context["user"]
-        user.set_username(self.validated_data["username"], changed_by=changed_by)
-        user.save(update_fields=["username", "slug"])
+
+        old_username = user.username
+
+        if user.set_username(self.validated_data["username"], commit=False):
+            record_name_change(user, changed_by, user.username, old_username, commit=False)
+
+            user.save(update_fields=["username", "slug"])
+            update_username_references(user)

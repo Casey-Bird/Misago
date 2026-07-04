@@ -79,11 +79,6 @@ def archive_user_name_history(sender, archive=None, **kwargs):
         )
 
 
-@receiver(username_changed)
-def handle_name_change(sender, **kwargs):
-    sender.user_renames.update(changed_by_username=sender.username)
-
-
 @receiver(remove_old_ips)
 def remove_old_registrations_ips(sender, *, ip_storage_time, **kwargs):
     datetime_cutoff = timezone.now() - timedelta(days=ip_storage_time)

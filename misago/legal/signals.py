@@ -1,10 +1,10 @@
 from django.dispatch import receiver
 
-from ..users.signals import anonymize_user_data, username_changed
+from ..users.signals import anonymize_user_data
 from .models import Agreement
 
 
-@receiver([anonymize_user_data, username_changed])
+@receiver([anonymize_user_data])
 def update_usernames(sender, **kwargs):
     Agreement.objects.filter(created_by=sender).update(created_by_name=sender.username)
 

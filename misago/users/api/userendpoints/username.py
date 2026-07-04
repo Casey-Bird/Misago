@@ -3,7 +3,7 @@ from django.utils.translation import pgettext
 from rest_framework import status
 from rest_framework.response import Response
 
-from ...namechanges import get_username_options
+from ...usernames import get_username_options
 from ...serializers import ChangeUsernameSerializer
 
 

@@ -7,7 +7,6 @@ from ..users.signals import (
     anonymize_user_data,
     archive_user_data,
     delete_user_content,
-    username_changed,
 )
 from .models import Notification, WatchedThread
 from .registry import registry
@@ -28,7 +27,7 @@ def archive_user_notifications(sender, archive=None, **kwargs):
         )
 
 
-@receiver([anonymize_user_data, username_changed])
+@receiver([anonymize_user_data])
 def update_actor_name(sender, **kwargs):
     Notification.objects.filter(actor=sender).update(actor_name=sender.username)
 
