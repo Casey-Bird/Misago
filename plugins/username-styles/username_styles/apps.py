@@ -1,4 +1,3 @@
-
 from django.apps import AppConfig
 from django.conf import settings
 
@@ -7,8 +6,7 @@ class UsernameStylesConfig(AppConfig):
     verbose_name = "Username Styles"
 
     def ready(self):
-        from . import admin  # noqa: F401
-
+        from . import admin
         middleware = 'username_styles.middleware.UsernameStyleMiddleware'
         if middleware not in settings.MIDDLEWARE:
             settings.MIDDLEWARE.append(middleware)

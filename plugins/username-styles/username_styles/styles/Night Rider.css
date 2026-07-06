@@ -1,0 +1,13 @@
+@keyframes synthwave {
+  0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #00ffff; transform: translateX(0); }
+  25% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #00ffff; transform: translateX(3px); }
+  50% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #00ffff; transform: translateX(0); }
+  75% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #00ffff; transform: translateX(-3px); }
+  100% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #00ffff; transform: translateX(0); }
+}
+
+.username {
+  color: #ff44ff;
+  font-weight: bold;
+  animation: synthwave 2s ease-in-out infinite;
+}

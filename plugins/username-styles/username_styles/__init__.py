@@ -1,0 +1,1 @@
+default_app_config = 'username_styles.apps.UsernameStylesConfig'

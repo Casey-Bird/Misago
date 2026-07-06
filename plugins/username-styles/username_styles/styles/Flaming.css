@@ -1,0 +1,89 @@
+@keyframes flame {
+  0% { text-shadow: 
+      0 0 2px #ffffff,
+      0 0 5px #ffdd00,
+      0 0 8px #ff8800,
+      0 0 15px #ff4400,
+      0 0 30px #ff2200,
+      0 0 60px #cc0000,
+      0 0 90px #880000;
+      transform: scale(1) rotate(-0.5deg);
+  }
+  15% { text-shadow: 
+      0 0 3px #ffffff,
+      0 0 7px #ffdd00,
+      0 0 12px #ff8800,
+      0 0 22px #ff4400,
+      0 0 45px #ff2200,
+      0 0 80px #cc0000,
+      0 0 110px #880000;
+      transform: scale(1.05) rotate(1deg);
+  }
+  30% { text-shadow: 
+      0 0 2px #ffffff,
+      0 0 5px #ffdd00,
+      0 0 8px #ff8800,
+      0 0 15px #ff4400,
+      0 0 30px #ff2200,
+      0 0 60px #cc0000,
+      0 0 90px #880000;
+      transform: scale(1) rotate(-1deg);
+  }
+  45% { text-shadow: 
+      0 0 4px #ffffff,
+      0 0 9px #ffdd00,
+      0 0 16px #ff8800,
+      0 0 28px #ff4400,
+      0 0 55px #ff2200,
+      0 0 95px #cc0000,
+      0 0 120px #880000;
+      transform: scale(1.08) rotate(1.5deg);
+  }
+  60% { text-shadow: 
+      0 0 2px #ffffff,
+      0 0 5px #ffdd00,
+      0 0 8px #ff8800,
+      0 0 15px #ff4400,
+      0 0 30px #ff2200,
+      0 0 60px #cc0000,
+      0 0 90px #880000;
+      transform: scale(1) rotate(0deg);
+  }
+  75% { text-shadow: 
+      0 0 3px #ffffff,
+      0 0 7px #ffdd00,
+      0 0 12px #ff8800,
+      0 0 22px #ff4400,
+      0 0 45px #ff2200,
+      0 0 80px #cc0000,
+      0 0 110px #880000;
+      transform: scale(1.05) rotate(-1deg);
+  }
+  90% { text-shadow: 
+      0 0 2px #ffffff,
+      0 0 5px #ffdd00,
+      0 0 8px #ff8800,
+      0 0 15px #ff4400,
+      0 0 30px #ff2200,
+      0 0 60px #cc0000,
+      0 0 90px #880000;
+      transform: scale(1) rotate(0.5deg);
+  }
+  100% { text-shadow: 
+      0 0 2px #ffffff,
+      0 0 5px #ffdd00,
+      0 0 8px #ff8800,
+      0 0 15px #ff4400,
+      0 0 30px #ff2200,
+      0 0 60px #cc0000,
+      0 0 90px #880000;
+      transform: scale(1) rotate(-0.5deg);
+  }
+}
+
+.username {
+    color: #ff5500;
+    font-weight: bold;
+    display: inline-block;
+    animation: flame 1.8s ease-in-out infinite;
+}

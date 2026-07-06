@@ -1,0 +1,12 @@
+@keyframes bubbles {
+  0% { transform: translateY(0px); text-shadow: 0 0 0 #00ccff; }
+  30% { transform: translateY(-8px); text-shadow: 0 -10px 5px rgba(0,204,255,0.3), 0 -20px 10px rgba(0,204,255,0.2), 0 -30px 15px rgba(0,204,255,0.1); }
+  60% { transform: translateY(-4px); text-shadow: 0 -5px 5px rgba(0,204,255,0.2), 0 -15px 10px rgba(0,204,255,0.1), 0 -25px 15px rgba(0,204,255,0.05); }
+  100% { transform: translateY(0px); text-shadow: 0 0 0 #00ccff; }
+}
+
+.username {
+  color: #00ccff;
+  font-weight: bold;
+  animation: bubbles 3s ease-in-out infinite;
+}
