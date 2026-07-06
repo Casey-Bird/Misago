@@ -15,3 +15,4 @@ manifest = MisagoPlugin(
     bugs="https://misago-project.org/c/bug-reports/29/",
     repo="https://github.com/rafalp/misago",
 )
+

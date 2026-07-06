@@ -1,0 +1,13 @@
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  16% { color: #ff8800; }
+  33% { color: #ffff00; }
+  50% { color: #00ff00; }
+  66% { color: #0088ff; }
+  83% { color: #8800ff; }
+  100% { color: #ff0000; }
+}
+color: #ff0000;
+animation: rainbow 3s linear infinite;
+font-weight: bold;
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);

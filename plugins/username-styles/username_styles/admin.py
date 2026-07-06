@@ -1,9 +1,5 @@
 
 from django.urls import path, include
-from django.utils.translation import pgettext_lazy
-
-from . import views
-
 
 class MisagoAdminExtension:
     def register_urlpatterns(self, urlpatterns):
@@ -14,8 +10,8 @@ class MisagoAdminExtension:
 
     def register_navigation_nodes(self, site):
         site.add_node(
-            name=pgettext_lazy("admin node", "Username Styles"),
-            icon="fa fa-cog",
+            name="Username Styles",
+            icon="fa fa-paint-brush",
             parent="plugins",
             namespace="username-styles",
         )
